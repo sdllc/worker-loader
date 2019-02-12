@@ -12,6 +12,9 @@
     },
     "publicPath": {
       "type": "string"
+    },
+    "variablePath": {
+      "type": "string"
     }
   },
   "additionalProperties": false

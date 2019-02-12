@@ -6,7 +6,9 @@ const getWorker = (file, content, options) => {
     ? JSON.stringify(options.publicPath)
     : '__webpack_public_path__';
 
-  const publicWorkerPath = `${publicPath} + ${JSON.stringify(file)}`;
+  const publicWorkerPath = options.variablePath ?
+    `${publicPath} + (${options.variablePath}||'') + ${JSON.stringify(file)}` :
+    `${publicPath} + ${JSON.stringify(file)}`;
 
   if (options.inline) {
     const InlineWorkerPath = JSON.stringify(`!!${
